@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+<h3>are you sure you want to delete</h3>
+
+<form method="post">
+  {% csrf_token %}
+  <button type ="submit" class="btn btn-danger">Delete</button>
+  <a href="comment_list/" class="btn btn-success">Back</a>
+</form>
+
+
+{% endblock %}
+

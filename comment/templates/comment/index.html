@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<style>
+.hero {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-card {
+    background: rgba(30, 41, 59, 0.85);
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 900px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+}
+
+.hero-card h1 {
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+.hero-card p {
+    color: #94a3b8;
+    margin-top: 10px;
+}
+
+.hero-img {
+    margin-top: 25px;
+    border-radius: 16px;
+    max-height: 420px;
+    width: 100%;
+    object-fit: cover;
+    cursor: zoom-in;
+}
+</style>
+
+<div class="hero">
+    <div class="hero-card">
+        <h1>Welcome 👋</h1>
+        <p>
+            Share your thoughts, images, and ideas with the community.
+        </p>
+
+        <img
+            src="/media/photos/fig_1_methodolgy.png"
+            class="hero-img"
+            onclick="enlargeImg()"
+            alt="Project Image"
+        >
+    </div>
+</div>
+
+<script>
+function enlargeImg() {
+    const img = event.target;
+    img.style.transform = img.style.transform === "scale(1.5)"
+        ? "scale(1)"
+        : "scale(1.5)";
+    img.style.transition = "0.3s ease";
+}
+</script>
+
+{% endblock %}

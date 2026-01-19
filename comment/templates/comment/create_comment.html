@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% block title %}
+{% if form.instance.pk %}Edit Comment{% else %}Add Comment{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<style>
+.comment-form-wrapper {
+    min-height: calc(100vh - 120px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.comment-form-card {
+    width: 100%;
+    max-width: 650px;
+    background: rgba(30, 41, 59, 0.85);
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+}
+
+.comment-form-card h2 {
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.comment-form-card input,
+.comment-form-card textarea {
+    background: rgba(15, 23, 42, 0.95);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #fff;
+    border-radius: 12px;
+}
+
+.comment-form-card input:focus,
+.comment-form-card textarea:focus {
+    border-color: #38bdf8;
+    box-shadow: none;
+    background: rgba(15, 23, 42, 1);
+    color: #fff;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+</style>
+
+<div class="comment-form-wrapper">
+    <div class="comment-form-card">
+
+        <h2>
+            {% if form.instance.pk %}
+                ✏️ Edit Comment
+            {% else %}
+                💬 Add New Comment
+            {% endif %}
+        </h2>
+
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <div class="form-actions">
+                <a href="{% url 'comment_list' %}" class="btn btn-outline-light">
+                    ← Back
+                </a>
+
+                <button type="submit" class="btn btn-primary">
+                    Save
+                </button>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}
