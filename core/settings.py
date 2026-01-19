@@ -26,7 +26,12 @@ SECRET_KEY = 'django-insecure-1cox)q(^9l_i&r10c95d0o2-w$2xmeu#+$dfitb*+p8_)jri(y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "comment-handel.onrender.com",
+    "localhost",
+    "127.0.0.1",
+]
+
 
 
 # Application definition
@@ -140,3 +145,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
